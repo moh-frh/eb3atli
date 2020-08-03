@@ -57,8 +57,14 @@
                     {% for game in my_games %}
 
                         <div class="single-game-review-area d-flex flex-wrap mb-30">
-                        <div class="game-thumbnail">
-                            <img src="/static/img/bg-img/28.jpg" alt="">
+                            <div class="game-thumbnail">
+                                {% if game.environement == "PC" %}
+                                    <img src="/static/img/bg-img/pc.jpg" alt="">
+                                    {% elif game.environement == "XBOX"%}
+                                        <img src="/static/img/bg-img/xbox.jpg" alt="">
+                                        {% else %}
+                                            <img src="/static/img/bg-img/ps4.jpg" alt="">
+                                {% endif %}
                         </div>
                         <div class="game-content">
 

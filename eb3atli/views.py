@@ -108,3 +108,7 @@ def Dashboard(request):
 
     return render(request, 'dashboard.html', context)
 
+def Contact(request):
+    context = {'title':"contact"}
+    return render(request, 'contact.html', context)
+

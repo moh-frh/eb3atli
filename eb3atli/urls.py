@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
-from eb3atli.views import Home, Register, Get_my_games, Get_wish_games, Dashboard, Login
+from eb3atli.views import Home, Register, Get_my_games, Get_wish_games, Dashboard, Login, Contact
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -30,11 +30,9 @@ urlpatterns = [
     path('my_games', Get_my_games, name='my_games'),
     path('wish_games', Get_wish_games, name='wish_games'),
     path('dashboard', Dashboard, name='dashboard'),
+    path('contact', Contact, name='contactus'),
 
     # path('<int:id>/', Register, name='update'),
-
-    # path('register_my_game', Register_My_Game, name='register_my_game'),
-    # path('register_wish_game', Register_Wish_game, name='register_wish_game'),
 
 ]
 

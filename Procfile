@@ -1,0 +1,1 @@
+web: gunicorn eb3atli.wsgi
