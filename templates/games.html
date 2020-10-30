@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Title -->
+    <title>{{ title }}</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="/static/img/core-img/favicon.ico">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="/static/style.css">
+
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div class="preloader d-flex align-items-center justify-content-center">
+        <div class="spinner">
+            <div class="bounce1"></div>
+            <div class="bounce2"></div>
+            <div class="bounce3"></div>
+        </div>
+    </div>
+
+    <!-- ##### Header Area Start ##### -->
+    {% include 'to_include/header_home.html' %}
+    <!-- ##### Header Area End ##### -->
+
+    <!-- ##### Breadcrumb Area Start ##### -->
+    <div class="breadcrumb-area bg-img bg-overlay" style="background-image: url(/static/img/bg-img/27.jpg);">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <!-- Breadcrumb Text -->
+                <div class="col-12">
+                    <div class="breadcrumb-text">
+                        <h2>my games</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ##### Breadcrumb Area End ##### -->
+
+    <!-- ##### Game Review Area Start ##### -->
+    <section class="game-review-area section-padding-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+
+                    {% for game in my_games %}
+
+                        <div class="single-game-review-area d-flex flex-wrap mb-30">
+                            <div class="game-thumbnail">
+                                {% if game.environement == "PC" %}
+                                    <img src="/static/img/bg-img/pc.jpg" alt="">
+                                    {% elif game.environement == "XBOX"%}
+                                        <img src="/static/img/bg-img/xbox.jpg" alt="">
+                                        {% else %}
+                                            <img src="/static/img/bg-img/ps4.jpg" alt="">
+                                {% endif %}
+                        </div>
+                        <div class="game-content">
+
+                            <a href="single-game-review.html" class="game-title">{{ game.game_name }}</a>
+                            <div class="game-meta">
+                                <a href="#" class="game-date">July 12, 2018</a>
+                                <a href="#" class="game-comments">{{ game.environement }}</a>
+                            </div>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris velit arcu, scelerisque dignissim massa quis, mattis facilisis erat. Aliquam erat volutpat. Sed efficitur diam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris velit arcu, scelerisque dignissim massa quis, mattis facilisis erat. Aliquam erat volutpat. Sed efficitur diam.</p>
+                            <!-- Download & Rating Area -->
+                            <div class="download-rating-area d-flex align-items-center justify-content-between">
+                                <div class="download-area">
+                                    <a href="{% url 'update_game' game.id %}" class="btn text-secondary">
+                                        <i class="fa fa-edit" aria-hidden="true"></i>
+                                    </a>
+                                    <a href="#"><img src="/static/img/core-img/google-play.png" alt=""></a>
+                                </div>
+                                <div class="rating-area text-center">
+                                    <h3>9.1</h3>
+                                    <div class="stars">
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    <!-- *** Single Review Area *** -->
+
+
+                    <!-- *** Single Review Area *** -->
+
+
+                    <!-- ### Pagination Area ### -->
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination mt-100">
+                            <li class="page-item active"><a class="page-link" href="#">01</a></li>
+                            <li class="page-item"><a class="page-link" href="#">02</a></li>
+                            <li class="page-item"><a class="page-link" href="#">03</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ##### Game Review Area End ##### -->
+
+    <!-- ##### Footer Area Start ##### -->
+    {% include 'to_include/footer_home.html' %}
+    <!-- ##### Footer Area End ##### -->
+
+    <!-- ##### All Javascript Script ##### -->
+    <!-- jQuery-2.2.4 js -->
+    <script src="/static/js/jquery/jquery-2.2.4.min.js"></script>
+    <!-- Popper js -->
+    <script src="/static/js/bootstrap/popper.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="/static/js/bootstrap/bootstrap.min.js"></script>
+    <!-- All Plugins js -->
+    <script src="/static/js/plugins/plugins.js"></script>
+    <!-- Active js -->
+    <script src="/static/js/active.js"></script>
+</body>
+
+</html>
