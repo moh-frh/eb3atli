@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,8 +19,10 @@
     <link rel="stylesheet" href="/static/style.css">
 
 </head>
-
+{#class="bg-pattern2"#}
 <body>
+
+
     <!-- Preloader -->
     <div class="preloader d-flex align-items-center justify-content-center">
         <div class="spinner">
@@ -44,8 +47,8 @@
                     <div class="row h-100 align-items-center">
                         <div class="col-12 col-lg-9">
                             <div class="blog-content" data-animation="fadeInUp" data-delay="100ms">
-                                <h2 data-animation="fadeInUp" data-delay="400ms">The Power of Gaming</h2>
-                                <p data-animation="fadeInUp" data-delay="700ms">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tristique justo id elit bibendum pharetra non vitae lectus. Mauris libero felis, dapibus a ultrices sed, commodo vitae odio. Sed auctor tellus quis arcu tempus, egestas tincidunt.</p>
+                                <h2 data-animation="fadeInUp" data-delay="400ms">selekni w nselkek</h2>
+                                <p data-animation="fadeInUp" data-delay="700ms"> aider les autres a trouver leurs jeux chez vous et trouver les miens chez les autres </p>
                             </div>
                         </div>
                     </div>
@@ -59,8 +62,8 @@
                     <div class="row h-100 align-items-center">
                         <div class="col-12 col-lg-9">
                             <div class="blog-content" data-animation="fadeInUp" data-delay="100ms">
-                                <h2 data-animation="fadeInUp" data-delay="400ms">The Power of Gaming</h2>
-                                <p data-animation="fadeInUp" data-delay="700ms">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tristique justo id elit bibendum pharetra non vitae lectus. Mauris libero felis, dapibus a ultrices sed, commodo vitae odio. Sed auctor tellus quis arcu tempus, egestas tincidunt.</p>
+                                <h2 data-animation="fadeInUp" data-delay="400ms">trouvez le jeu que vous voulez !</h2>
+                                <p data-animation="fadeInUp" data-delay="700ms"> ici vous trouvez le jeu vous chercher depuis longtemps, vous avez une connexion de merde comme moi xD y'a des gens qui ont votre jeu </p>
                             </div>
                         </div>
                     </div>
@@ -78,24 +81,24 @@
                 <!-- Single Games Area -->
                 <div class="col-12 col-md-4">
                     <div class="single-games-area text-center mb-100 wow fadeInUp" data-wow-delay="100ms">
-                        <img src="/static/img/bg-img/game1.jpg" alt="">
-                        <a href="#" class="btn egames-btn mt-30">View Games</a>
+                        <img src="{% static '/img/core-img/playstation.png' %}" alt="">
+                        <a href="#" class="btn egames-btn mt-30">{{ ps_count }}</a>
                     </div>
                 </div>
 
                 <!-- Single Games Area -->
                 <div class="col-12 col-md-4">
                     <div class="single-games-area text-center mb-100 wow fadeInUp" data-wow-delay="300ms">
-                        <img src="/static/img/bg-img/game2.jpg" alt="">
-                        <a href="#" class="btn egames-btn mt-30">View Games</a>
+                        <img src="{% static '/img/core-img/windows.png' %}" alt="">
+                        <a href="#" class="btn egames-btn mt-30">{{ pc_count }}</a>
                     </div>
                 </div>
 
                 <!-- Single Games Area -->
                 <div class="col-12 col-md-4">
                     <div class="single-games-area text-center mb-100 wow fadeInUp" data-wow-delay="500ms">
-                        <img src="/static/img/bg-img/game3.jpg" alt="">
-                        <a href="#" class="btn egames-btn mt-30">View Games</a>
+                        <img src="{% static '/img/core-img/xbox.png' %}" alt="">
+                        <a href="#" class="btn egames-btn mt-30">{{ xbox_count }}</a>
                     </div>
                 </div>
             </div>
@@ -117,7 +120,7 @@
             <div class="row">
                 <div class="col-12">
                     <!-- Title -->
-                    <h2 class="section-title mb-70 wow fadeInUp" data-wow-delay="100ms">This Month’s Pick</h2>
+                    <h2 class="section-title mb-70 wow fadeInUp" data-wow-delay="100ms">Pick de ce mois</h2>
                 </div>
             </div>
 
@@ -125,13 +128,13 @@
                 <div class="col-12">
                     <ul class="nav nav-tabs wow fadeInUp" data-wow-delay="300ms" id="myTab" role="tablist">
                         <li class="nav-item">
-                            <a class="nav-link active" id="popular-tab" data-toggle="tab" href="#popular" role="tab" aria-controls="popular" aria-selected="true">Popular</a>
+                            <a class="nav-link active" id="popular-tab" data-toggle="tab" href="#popular" role="tab" aria-controls="popular" aria-selected="true">populaires</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="latest-tab" data-toggle="tab" href="#latest" role="tab" aria-controls="latest" aria-selected="false">Latest</a>
+                            <a class="nav-link" id="latest-tab" data-toggle="tab" href="#latest" role="tab" aria-controls="latest" aria-selected="false">recents</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="editor-tab" data-toggle="tab" href="#editor" role="tab" aria-controls="editor" aria-selected="false">Editor’s Pick</a>
+                            <a class="nav-link" id="editor-tab" data-toggle="tab" href="#editor" role="tab" aria-controls="editor" aria-selected="false">gratuits </a>
                         </li>
                     </ul>
                 </div>
@@ -651,7 +654,7 @@
                 <div class="col-12 col-lg-8">
                     <div class="mb-100">
                         <!-- Title -->
-                        <h2 class="section-title mb-70 wow fadeInUp" data-wow-delay="100ms">Latest Articles</h2>
+                        <h2 class="section-title mb-70 wow fadeInUp" data-wow-delay="100ms">les recents Articles</h2>
 
                         <!-- *** Single Articles Area *** -->
                         <div class="single-articles-area style-2 d-flex flex-wrap mb-30 wow fadeInUp" data-wow-delay="300ms">
@@ -702,7 +705,7 @@
 
                 <div class="col-12 col-md-6 col-lg-4">
                     <!-- Title -->
-                    <h2 class="section-title mb-70 wow fadeInUp" data-wow-delay="100ms">This week’s deal</h2>
+                    <h2 class="section-title mb-70 wow fadeInUp" data-wow-delay="100ms">promotion</h2>
 
                     <!-- Single Widget Area -->
                     <div class="single-widget-area add-widget wow fadeInUp" data-wow-delay="300ms">

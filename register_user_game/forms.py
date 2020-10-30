@@ -12,31 +12,31 @@ class UserForm(forms.ModelForm):
     #     super(UserForm, self).__init__(*args, **kwargs)
     #     self.fields['game'].empty_label = "select"
 
-class MyGamesForm(forms.ModelForm):
+class My_gamesForm(forms.ModelForm):
 
     class Meta:
         model = My_games
-        fields = '__all__' # or ('name', 'passwoerd',....)
+        # fields = '__all__' # or ('name', 'passwoerd',....)
+        fields = ['game_name', 'environement']
 
-    def __init__(self, *args, **kwargs):
-        super(MyGamesForm, self).__init__(*args, **kwargs)
-        self.fields['environement'].empty_label = "select"
+    # def __init__(self, *args, **kwargs):
+    #     super(My_gamesForm, self).__init__(*args, **kwargs)
+    #     self.fields['environement'].empty_label = "select"
+    #
+    #     self.fields['game_name'].required = False
+    #     self.fields['environement'].required = False
 
-        self.fields['game_name'].required = False
-        self.fields['environement'].required = False
-
-
-
-class WishGamesForm(forms.ModelForm):
+class Wish_gamesForm(forms.ModelForm):
 
     class Meta:
         model = Wish_games
-        fields = '__all__' # or ('name', 'passwoerd',....)
+        fields = ['game_name', 'environement']
+        # fields = '__all__' # or ('name', 'passwoerd',....)
 
-    def __init__(self, *args, **kwargs):
-        super(WishGamesForm, self).__init__(*args, **kwargs)
-        self.fields['environement'].empty_label = "select"
+    # def __init__(self, *args, **kwargs):
+    #     super(Wish_gamesForm, self).__init__(*args, **kwargs)
+    #     self.fields['environement'].empty_label = "select"
+    #
+    #     self.fields['game_name'].required = False
+    #     self.fields['environement'].required = False
 
-
-        self.fields['game_name'].required = False
-        self.fields['environement'].required = False

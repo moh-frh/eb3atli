@@ -37,7 +37,7 @@
 
           <div class="input-group mb-3">
 {#          <input type="text" class="form-control" placeholder="Full name">#}
-              {{ wish_game_form.wish_game_name }}
+              {{ form.game_name }}
             <div class="input-group-append">
                 <div class="input-group-text">
                     <span class="fas fa-user"></span>
@@ -45,11 +45,22 @@
             </div>
           </div>
 
+          <div class="input-group mb-3">
+{#          <input type="text" class="form-control" placeholder="Full name">#}
+              {{ form.environement }}
+            <div class="input-group-append">
+                <div class="input-group-text">
+                    <span class="fas fa-user"></span>
+                </div>
+            </div>
+          </div>
 
         <div class="row">
           <!-- /.col -->
           <div class="col-4">
-            <button type="submit" class="btn btn-block" style="background-color: #20d8da;">save wish games</button>
+            <button type="submit" class="btn btn-block" style="background-color: #20d8da;">
+                save my games
+            </button>
           </div>
           <!-- /.col -->
         </div>
@@ -156,7 +167,7 @@
 		var form_fields = document.getElementsByTagName('input')
 		form_fields[1].placeholder='game_name';
 		form_fields[2].placeholder='environement';
-		form_fields[3].placeholder='type';
+		{#form_fields[3].placeholder='type';#}
 
 		for (var field in form_fields){
 			form_fields[field].className += ' form-control'

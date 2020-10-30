@@ -37,7 +37,17 @@
 
           <div class="input-group mb-3">
 {#          <input type="text" class="form-control" placeholder="Full name">#}
-              {{ my_game_form.my_game_name }}
+              {{ form.game_name }}
+            <div class="input-group-append">
+                <div class="input-group-text">
+                    <span class="fas fa-user"></span>
+                </div>
+            </div>
+          </div>
+
+          <div class="input-group mb-3">
+{#          <input type="text" class="form-control" placeholder="Full name">#}
+              {{ form.environement }}
             <div class="input-group-append">
                 <div class="input-group-text">
                     <span class="fas fa-user"></span>
@@ -48,7 +58,7 @@
         <div class="row">
           <!-- /.col -->
           <div class="col-4">
-            <button type="submit" class="btn btn-block" href="{% url 'register_my_game' %}" style="background-color: #20d8da;">
+            <button type="submit" class="btn btn-block" style="background-color: #20d8da;">
                 save my games
             </button>
           </div>

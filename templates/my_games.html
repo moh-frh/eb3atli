@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,21 +7,12 @@
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-
-    <!-- Title -->
-    <title>{{ title }}</title>
-
-    <!-- Favicon -->
+    <title>title </title>
     <link rel="icon" href="/static/img/core-img/favicon.ico">
-
-    <!-- Stylesheet -->
     <link rel="stylesheet" href="/static/style.css">
-
 </head>
 
 <body>
-    <!-- Preloader -->
     <div class="preloader d-flex align-items-center justify-content-center">
         <div class="spinner">
             <div class="bounce1"></div>
@@ -30,7 +22,7 @@
     </div>
 
     <!-- ##### Header Area Start ##### -->
-    {% include 'to_include/header_home.html' %}
+    {% include 'to_include/header_dash.html' %}
     <!-- ##### Header Area End ##### -->
 
     <!-- ##### Breadcrumb Area Start ##### -->
@@ -49,12 +41,15 @@
     <!-- ##### Breadcrumb Area End ##### -->
 
     <!-- ##### Game Review Area Start ##### -->
+    <div class="">
+{#        <a href="{% url 'add_new_my_game' %}">add new my_game</a>#}
+    </div>
     <section class="game-review-area section-padding-100">
         <div class="container">
             <div class="row">
                 <div class="col-12">
 
-                    {% for game in my_games %}
+                    {% for game in all_my_games %}
 
                         <div class="single-game-review-area d-flex flex-wrap mb-30">
                             <div class="game-thumbnail">
@@ -77,9 +72,14 @@
                             <!-- Download & Rating Area -->
                             <div class="download-rating-area d-flex align-items-center justify-content-between">
                                 <div class="download-area">
-                                    <a href="{% url 'update_game' game.id %}" class="btn text-secondary">
+                                    <a href="{% url 'update_my_game' game.id %}" class="btn text-secondary">
                                         <i class="fa fa-edit" aria-hidden="true"></i>
                                     </a>
+
+                                    <a href="{% url 'delete_my_game' game.id %}" class="btn text-secondary">
+                                        <i class="fa fa-trash" aria-hidden="true"></i>
+                                    </a>
+
                                     <a href="#"><img src="/static/img/core-img/google-play.png" alt=""></a>
                                 </div>
                                 <div class="rating-area text-center">
@@ -114,22 +114,13 @@
             </div>
         </div>
     </section>
-    <!-- ##### Game Review Area End ##### -->
 
-    <!-- ##### Footer Area Start ##### -->
     {% include 'to_include/footer_home.html' %}
-    <!-- ##### Footer Area End ##### -->
 
-    <!-- ##### All Javascript Script ##### -->
-    <!-- jQuery-2.2.4 js -->
     <script src="/static/js/jquery/jquery-2.2.4.min.js"></script>
-    <!-- Popper js -->
     <script src="/static/js/bootstrap/popper.min.js"></script>
-    <!-- Bootstrap js -->
     <script src="/static/js/bootstrap/bootstrap.min.js"></script>
-    <!-- All Plugins js -->
     <script src="/static/js/plugins/plugins.js"></script>
-    <!-- Active js -->
     <script src="/static/js/active.js"></script>
 </body>
 

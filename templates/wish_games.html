@@ -30,7 +30,7 @@
     </div>
 
     <!-- ##### Header Area Start ##### -->
-    {% include 'to_include/header_home.html' %}
+    {% include 'to_include/header_dash.html' %}
     <!-- ##### Header Area End ##### -->
 
     <!-- ##### Breadcrumb Area Start ##### -->
@@ -54,7 +54,7 @@
             <div class="row">
                 <div class="col-12">
 
-                    {% for game in wish_games %}
+                    {% for game in all_my_games %}
 
                         <div class="single-game-review-area d-flex flex-wrap mb-30">
                         <div class="game-thumbnail">
@@ -77,9 +77,14 @@
                             <!-- Download & Rating Area -->
                             <div class="download-rating-area d-flex align-items-center justify-content-between">
                                 <div class="download-area">
-                                    <a href="{% url 'update_game' game.id %}" class="btn text-secondary">
+                                    <a href="{% url 'update_wish_game' game.id %}" class="btn text-secondary">
                                         <i class="fa fa-edit" aria-hidden="true"></i>
                                     </a>
+
+                                    <a href="{% url 'delete_wish_game' game.id %}" class="btn text-secondary">
+                                        <i class="fa fa-trash" aria-hidden="true"></i>
+                                    </a>
+
                                     <a href="#"><img src="/static/img/core-img/google-play.png" alt=""></a>
                                 </div>
                                 <div class="rating-area text-center">
