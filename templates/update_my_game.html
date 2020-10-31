@@ -1,5 +1,190 @@
-<form method="post">
-    {% csrf_token %}
-    {{form}}
-<button type="submit">modifier my game</button>
-</form>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>AdminLTE 3 | Registration Page</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  {% include "login_register_includes/styles.html" %}
+
+    <!-- daterange picker -->
+    <link rel="stylesheet" href="/static/plugins/daterangepicker/daterangepicker.css">
+
+    <link rel="stylesheet" href="/static/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css">
+    <!-- Tempusdominus Bbootstrap 4 -->
+    <link rel="stylesheet" href="/static/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+    <!-- Select2 -->
+    <link rel="stylesheet" href="/static/plugins/select2/css/select2.min.css">
+    <link rel="stylesheet" href="/static/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+    <!-- Bootstrap4 Duallistbox -->
+    <link rel="stylesheet" href="/static/plugins/bootstrap4-duallistbox/bootstrap-duallistbox.min.css">
+
+
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+</head>
+<body class="hold-transition login-page" >
+
+<div class="login-box" >
+
+    <div class="login-logo">
+        <a href="#">Ngaymiw<b>Ga3</b></a>
+    </div>
+
+  <div class="card">
+    <div class="card-body login-card-body">
+        <p class="login-box-msg">ajouter un jeu</p>
+
+        <div class="contact-form-area" >
+
+            <form action="" method="POST">
+            {% csrf_token %}
+
+            <div class="row" >
+
+              <div class="input-group mb-3 col-12">
+    {#          <input type="text" class="form-control" placeholder="Full name">#}
+                  {{ form.game_name }}
+                <div class="input-group-append">
+                    <div class="input-group-text">
+                        <span class="fas fa-gamepad"></span>
+                    </div>
+                </div>
+              </div>
+
+              <div class="input-group mb-3 col-12">
+    {#          <input type="text" class="form-control" placeholder="Full name">#}
+                  {{ form.environement }}
+                <div class="input-group-append">
+                    <div class="input-group-text">
+                        <span class="fas fa-desktop"></span>
+                    </div>
+                </div>
+              </div>
+
+
+              <!-- /.col -->
+              <div class="col-12">
+                <button type="submit" class="btn btn-block" style="background-color: #20d8da;">
+                    save my games
+                </button>
+              </div>
+          <!-- /.col -->
+        </div>
+      </form>
+
+        </div>
+
+
+    </div>
+    <!-- /.form-box -->
+  </div><!-- /.card -->
+</div>
+<!-- /.register-box -->
+
+
+<!-- InputMask -->
+<script src="/static/plugins/moment/moment.min.js"></script>
+<script src="/static/plugins/inputmask/min/jquery.inputmask.bundle.min.js"></script>
+<!-- date-range-picker -->
+<script src="/static/plugins/daterangepicker/daterangepicker.js"></script>
+<!-- bootstrap color picker -->
+<script src="/static/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js"></script>
+<!-- Tempusdominus Bootstrap 4 -->
+<script src="/static/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+<!-- Bootstrap Switch -->
+<script src="/static/plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
+
+<!-- AdminLTE for demo purposes -->
+<script src="/static/dist/js/demo.js"></script>
+<!-- Page script -->
+<script>
+  $(function () {
+    //Initialize Select2 Elements
+    $('.select2').select2()
+
+    //Initialize Select2 Elements
+    $('.select2bs4').select2({
+      theme: 'bootstrap4'
+    })
+
+    //Datemask dd/mm/yyyy
+    $('#datemask').inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/yyyy' })
+    //Datemask2 mm/dd/yyyy
+    $('#datemask2').inputmask('mm/dd/yyyy', { 'placeholder': 'mm/dd/yyyy' })
+    //Money Euro
+    $('[data-mask]').inputmask()
+
+    //Date range picker
+    $('#reservation').daterangepicker()
+    //Date range picker with time picker
+    $('#reservationtime').daterangepicker({
+      timePicker: true,
+      timePickerIncrement: 30,
+      locale: {
+        format: 'MM/DD/YYYY hh:mm A'
+      }
+    })
+    //Date range as a button
+    $('#daterange-btn').daterangepicker(
+      {
+        ranges   : {
+          'Today'       : [moment(), moment()],
+          'Yesterday'   : [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+          'Last 7 Days' : [moment().subtract(6, 'days'), moment()],
+          'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+          'This Month'  : [moment().startOf('month'), moment().endOf('month')],
+          'Last Month'  : [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+        },
+        startDate: moment().subtract(29, 'days'),
+        endDate  : moment()
+      },
+      function (start, end) {
+        $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'))
+      }
+    )
+
+    //Timepicker
+    $('#timepicker').datetimepicker({
+      format: 'LT'
+    })
+
+    //Bootstrap Duallistbox
+    $('.duallistbox').bootstrapDualListbox()
+
+    //Colorpicker
+    $('.my-colorpicker1').colorpicker()
+    //color picker with addon
+    $('.my-colorpicker2').colorpicker()
+
+    $('.my-colorpicker2').on('colorpickerChange', function(event) {
+      $('.my-colorpicker2 .fa-square').css('color', event.color.toString());
+    });
+
+    $("input[data-bootstrap-switch]").each(function(){
+      $(this).bootstrapSwitch('state', $(this).prop('checked'));
+    });
+
+  })
+</script>
+
+
+
+<!-- /form scripts -->
+<script>
+		//Query All input fields
+		var form_fields = document.getElementsByTagName('input')
+		form_fields[1].placeholder='game_name';
+        form_fields[1].className=' form-control col-10';
+		form_fields[2].placeholder='environement';
+		{#form_fields[2].className='col-10';#}
+
+
+		{#for (var field in form_fields){#}
+		{#	form_fields[field].className += ' form-control'#}
+		{#}#}
+</script>
+
+</body>
+</html>

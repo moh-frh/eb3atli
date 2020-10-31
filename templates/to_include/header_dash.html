@@ -1,3 +1,5 @@
+{#<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous" />#}
+
 <header class="header-area wow fadeInDown" data-wow-delay="500ms">
         <!-- Top Header Area -->
         <div class="top-header-area">
@@ -25,10 +27,12 @@
                                     <li> <a href="#"><span>{{ user.email }}</span> </a> </li>
                                 </ul>
 
-                                <ul>
-                                    <li> <a href="{% url 'logout' %}"><span>logout</span> </a> </li>
-                                </ul>
 
+                            </div>
+                            <div class="">
+                                <ul>
+                                    <li> <a href="{% url 'logout' %}"><span> <i class="fa fa-sign-out" aria-hidden="true"></i> logout</span> </a> </li>
+                                </ul>
                             </div>
                         </div>
                     </div>
@@ -74,7 +78,7 @@
                                         </ul>
                                     </li>
 
-                                    <li><a href="{% url 'contactus' %}">Contact Us</a></li>
+                                    <li><a href="{% url 'contact' %}">Contacter nous</a></li>
 
                                 </ul>
                             </div>

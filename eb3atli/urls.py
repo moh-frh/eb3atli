@@ -18,7 +18,8 @@ from django.urls import path
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 from register_user_game.views import Home, Login, Register, Dashboard, Add_new_wish_game, Add_new_my_game, \
-    My_Games, Wish_Games, Update_my_game, Delete_my_game, Update_wish_game, Delete_wish_game, Logout
+    My_Games, Wish_Games, Update_my_game, Delete_my_game, Update_wish_game, Delete_wish_game, Logout, Game_details, \
+    Contact
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -32,7 +33,7 @@ urlpatterns = [
     path('wish_games', Wish_Games, name='wish_games'),
 
     path('dashboard', Dashboard, name='dashboard'),
-    path('contact', Register, name='contactus'),
+    path('contact', Contact, name='contact'),
 
     path('add_new_wish_game', Add_new_wish_game, name='add_new_wish_game'),
     path('Add_new_my_game', Add_new_my_game, name='add_new_my_game'),
@@ -44,6 +45,8 @@ urlpatterns = [
     path('delete_wish_game/<str:pk>/', Delete_wish_game, name='delete_wish_game'),
 
     path('logout', Logout, name='logout'),
+
+    path('game_details', Game_details, name='game_details'),
 
     # path('<int:id>/', Register, name='update'),
 

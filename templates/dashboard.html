@@ -1,22 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-
-    <!-- Title -->
     <title>{{ title}}</title>
-
-    <!-- Favicon -->
     <link rel="icon" href="/static/img/core-img/favicon.ico">
-
-    <!-- Stylesheet -->
     <link rel="stylesheet" href="/static/style.css">
-
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 </head>
 <body>
     <!-- Preloader -->
@@ -39,7 +31,7 @@
                 <!-- Breadcrumb Text -->
                 <div class="col-12">
                     <div class="breadcrumb-text">
-                        <h2>dashboard</h2>
+                        <h2>bienvenue, <b>{{ user.user_name }}</b></h2>
                     </div>
                 </div>
             </div>
@@ -53,13 +45,15 @@
             <div class="row">
                 <div class="col-12">
 
-                    {% for game in dashboard_games %}
+                    {% for game1 in all_my_games %}
+                        {% for game2 in wish_games %}
+                            {% if game1.game_name == game2.game_name %}
 
-                        <div class="single-game-review-area d-flex flex-wrap mb-30">
+                        <div class="single-game-review-area d-flex flex-wrap mb-30 col-md-8">
                             <div class="game-thumbnail">
-                                {% if game.environement == "PC" %}
+                                {% if game1.environement == "PC" %}
                                     <img src="/static/img/bg-img/pc.jpg" alt="">
-                                    {% elif game.environement == "XBOX"%}
+                                    {% elif game1.environement == "Xbox"%}
                                         <img src="/static/img/bg-img/xbox.jpg" alt="">
                                         {% else %}
                                             <img src="/static/img/bg-img/ps4.jpg" alt="">
@@ -67,25 +61,29 @@
                         </div>
                         <div class="game-content">
 
-                            <a href="single-game-review.html" class="game-title">{{ game.game_name }}</a>
+                            <a href="{% url 'game_details' %}" class="game-title">{{ game1.game_name }}</a>
                             <div class="game-meta">
-                                <a href="#" class="game-date">July 12, 2018</a>
-                                <a href="#" class="game-comments">{{ game.environement }}</a>
+                                <i class="fa fa-street-view" aria-hidden="true"></i><a href="#" class="game-comments"> {{ game1.user.get }} </a>
                             </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris velit arcu, scelerisque dignissim massa quis, mattis facilisis erat. Aliquam erat volutpat. Sed efficitur diam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris velit arcu, scelerisque dignissim massa quis, mattis facilisis erat. Aliquam erat volutpat. Sed efficitur diam.</p>
+
+                            <div class="game-meta">
+                                <a href="#" class="game-date">{{ game1.timestamp }}</a>
+                            </div>
+
+                            <p> description du <jeu></jeu> </p>
                             <!-- Download & Rating Area -->
                             <div class="download-rating-area d-flex align-items-center justify-content-between">
-                                <div class="download-area">
-                                    <a href="{% url 'update_my_game' game.id %}" class="btn text-secondary">
-                                        <i class="fa fa-edit" aria-hidden="true"></i>
-                                    </a>
-
-                                    <a href="{% url 'delete_my_game' game.id %}" class="btn text-secondary">
-                                        <i class="fa fa-trash" aria-hidden="true"></i>
-                                    </a>
-
-                                    <a href="#"><img src="/static/img/core-img/google-play.png" alt=""></a>
+                                <div class="download-area col-md-2">
+                                    {% if game1.environement == "PC" %}
+                                    <img src="/static/img/bg-img/pc.jpg" alt="">
+                                    {% elif game1.environement == "Xbox"%}
+                                        <img src="/static/img/bg-img/xbox.jpg" alt="">
+                                        {% else %}
+                                            <img src="/static/img/bg-img/ps4.jpg" alt="">
+                                     {% endif %}
                                 </div>
+
+
                                 <div class="rating-area text-center">
                                     <h3>9.1</h3>
                                     <div class="stars">
@@ -97,8 +95,21 @@
                                     </div>
                                 </div>
                             </div>
+
+                                 <div>
+                                    <a href="{% url 'update_my_game' game1.id %}" class="btn text-secondary">
+                                        <i class="fa fa-edit" aria-hidden="true"></i>
+                                    </a>
+
+                                    <a href="{% url 'delete_my_game' game1.id %}" class="btn text-secondary">
+                                        <i class="fa fa-trash" aria-hidden="true"></i>
+                                    </a>
+                                </div>
+
                         </div>
                     </div>
+                            {% endif %}
+                            {% endfor %}
                     {% endfor %}
                     <!-- *** Single Review Area *** -->
 

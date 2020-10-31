@@ -6,11 +6,16 @@
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-    <link rel="icon" href="img/core-img/favicon.ico">
-    <link rel="stylesheet" href="style.css">
+    <!-- Title -->
+    <title>Egames - Gaming Magazine Template</title>
 
-    <title>{{ title }}</title>
+    <!-- Favicon -->
+    <link rel="icon" href="/static/img/core-img/favicon.ico">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="/static/style.css">
 
 </head>
 
@@ -25,17 +30,17 @@
     </div>
 
     <!-- ##### Header Area Start ##### -->
-    {% include 'to_include/header_home.html' %}
+    {% include 'to_include/header_dash.html' %}
     <!-- ##### Header Area End ##### -->
 
     <!-- ##### Breadcrumb Area Start ##### -->
-    <section class="breadcrumb-area bg-img bg-overlay" style="background-image: url(img/bg-img/23.jpg);">
+    <section class="breadcrumb-area bg-img bg-overlay" style="background-image: url(/static/img/bg-img/23.jpg);">
         <div class="container h-100">
             <div class="row h-100 align-items-center">
                 <!-- Breadcrumb Text -->
                 <div class="col-12">
                     <div class="breadcrumb-text">
-                        <h2>Contact</h2>
+                        <h2>Contacter nous</h2>
                     </div>
                 </div>
             </div>
@@ -47,71 +52,28 @@
     <section class="contact-area section-padding-100">
         <div class="container">
             <div class="row">
-                <div class="col-12">
-                    <div class="row">
-                        <div class="col-12 col-lg-4">
-                            <div class="contact-content mb-100">
-                                <a href="#" class="mb-50 d-block"><img src="img/core-img/logo.png" alt=""></a>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris velit arcu, scelerisque dignissim massa quis, mattis facilisis erat.</p>
-                            </div>
-                        </div>
-                        <div class="col-12 col-lg-4">
-                            <div class="contact-content mb-100">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris velit arcu, scelerisque dignissim massa quis, mattis facilisis erat. Aliquam erat volutpat. Sed efficitur diam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris velit arcu, scelerisque.</p>
-                            </div>
-                        </div>
-                        <div class="col-12 col-lg-4">
-                            <div class="contact-content mb-100">
-                                <!-- Single Contact Info -->
-                                <div class="single-contact-info d-flex align-items-center">
-                                    <div class="title">
-                                        <p>Address</p>
-                                    </div>
-                                    <p>1481 Creekside Lane Avila Beach, CA 931</p>
-                                </div>
-
-                                <!-- Single Contact Info -->
-                                <div class="single-contact-info d-flex align-items-center">
-                                    <div class="title">
-                                        <p>Phone</p>
-                                    </div>
-                                    <p>+53 345 7953 32453</p>
-                                </div>
-
-                                <!-- Single Contact Info -->
-                                <div class="single-contact-info d-flex align-items-center">
-                                    <div class="title">
-                                        <p>E-mail</p>
-                                    </div>
-                                    <p>yourmail@gmail.com</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
                 <!-- Contact Form Area -->
                 <div class="col-12">
-                    <h4 class="mb-70">Get In Touch</h4>
 
                     <!-- Contact Form -->
                     <div class="contact-form-area mb-100">
                         <form action="#" method="post">
                             <div class="row">
                                 <div class="col-12 col-lg-6">
-                                    <input type="text" class="form-control" id="name" placeholder="Name*">
+                                    <input type="text" class="form-control" id="name" placeholder="Nom*">
                                 </div>
                                 <div class="col-12 col-lg-6">
                                     <input type="email" class="form-control" id="email" placeholder="Email*">
                                 </div>
                                 <div class="col-12">
-                                    <input type="text" class="form-control" id="subject" placeholder="Subject">
+                                    <input type="text" class="form-control" id="subject" placeholder="Sujet*">
                                 </div>
                                 <div class="col-12">
-                                    <textarea name="message" class="form-control" id="message" cols="30" rows="10" placeholder="Message"></textarea>
+                                    <textarea name="message" class="form-control" id="message" cols="30" rows="10" placeholder="Message*"></textarea>
                                 </div>
                                 <div class="col-12">
-                                    <button class="btn egames-btn w-100" type="submit">Send Message</button>
+                                    <button class="btn egames-btn w-100" type="submit">envoyer le message</button>
                                 </div>
                             </div>
                         </form>
@@ -130,21 +92,20 @@
     <!-- ##### Contact Area End ##### -->
 
     <!-- ##### Footer Area Start ##### -->
-        {% include 'to_include/footer_home.html' %}
-
+    {% include 'to_include/footer_home.html' %}
     <!-- ##### Footer Area End ##### -->
 
     <!-- ##### All Javascript Script ##### -->
     <!-- jQuery-2.2.4 js -->
-    <script src="js/jquery/jquery-2.2.4.min.js"></script>
+    <script src="/static/js/jquery/jquery-2.2.4.min.js"></script>
     <!-- Popper js -->
-    <script src="js/bootstrap/popper.min.js"></script>
+    <script src="/static/js/bootstrap/popper.min.js"></script>
     <!-- Bootstrap js -->
-    <script src="js/bootstrap/bootstrap.min.js"></script>
+    <script src="/static/js/bootstrap/bootstrap.min.js"></script>
     <!-- All Plugins js -->
-    <script src="js/plugins/plugins.js"></script>
+    <script src="/static/js/plugins/plugins.js"></script>
     <!-- Active js -->
-    <script src="js/active.js"></script>
+    <script src="/static/js/active.js"></script>
 </body>
 
 </html>

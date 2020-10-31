@@ -9,76 +9,75 @@
 
     {% include "login_register_includes/styles.html" %}
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-daterangepicker/3.0.5/daterangepicker.css" integrity="sha256-9e9MfmRHWQmp4yMV+R9cxXU6+ZjzB2x+YcE4Z1Kmuag=" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-colorpicker/3.2.0/css/bootstrap-colorpicker.min.css" integrity="sha256-17wSnqdRI9sWIxEZ1cMPunDErwMYQ4ZPzCkSaxjSSoE=" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.1.2/css/tempusdominus-bootstrap-4.min.css" integrity="sha256-XPTBwC3SBoWHSmKasAk01c08M6sIA5gF5+sRxqak2Qs=" crossorigin="anonymous" />
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ttskch/select2-bootstrap4-theme@1.4.0/dist/select2-bootstrap4.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap4-duallistbox/4.0.2/bootstrap-duallistbox.min.css" integrity="sha256-buHEe+156Hk0w29lJZctyXXfZl4mb8OFe1M6QfDanMs=" crossorigin="anonymous" />
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+
 </head>
-<body class="hold-transition register-page">
+<body class="hold-transition login-page">
 
-<div class="col-lg-6" style="margin-top: 50px">
-
+<div class="login-box">
+  <div class="login-logo">
+    <a href="#">Ngaymiw<b>Ga3</b></a>
+  </div>
+  <!-- /.login-logo -->
   <div class="card">
-    <div class="card-body register-card-body">
+    <div class="card-body login-card-body">
+      <p class="login-box-msg">Login</p>
 
-    <form action="" method="POST">
-          {% csrf_token %}
-        <div class="input-group mb-3 ">
-            {{ form.user_name }}
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-user"></span>
-            </div>
-          </div>
-        </div>
+      <div class="contact-form-area">
+            <form action="" method="POST">
+            {% csrf_token %}
+                <div class="row">
+                    <div class="col-12 col-lg-6">
+                        {{ form.user_name }}
+                    </div>
 
-        <div class="input-group mb-3 ">
-            {{ form.email }}
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-user"></span>
-            </div>
-          </div>
-        </div>
+                    <div class="col-12 col-lg-6">
+                        {{ form.email }}
+                    </div>
+                    <div class="col-12">
+                        {{ form.password }}
+                    </div>
 
-        <div class="input-group mb-3 ">
-            {{ form.password }}
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-user"></span>
-            </div>
-          </div>
-        </div>
+                    <div class="col-12">
+                        {{ form.phone }}
+                    </div>
 
-        <div class="input-group mb-3 ">
-            {{ form.phone }}
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-user"></span>
-            </div>
-          </div>
-        </div>
+                    <div class="col-12">
+                        {{ form.wilaya }}
+                    </div>
 
-        <div class="input-group mb-3 ">
-            {{ form.wilaya }}
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-user"></span>
-            </div>
-          </div>
-        </div>
+{#                                        <div class="col-12">#}
+{#                                            <textarea name="message" class="form-control" id="message" cols="30" rows="10" placeholder="Message"></textarea>#}
+{#                                        </div>#}
+                    <div class="col-12">
+                        <button class="btn egames-btn w-100" type="submit">creer</button>
+                    </div>
 
-        <div class="col-4">
-            <button type="submit" class="btn btn-primary btn-block">Register</button>
-        </div>
+                </div>
+            </form>
+      </div>
 
-    </form>
+      <div class="social-auth-links text-center mb-3">
+        <p>- OR -</p>
+        <a href="{% url 'login' %}" class="btn btn-block btn-primary">
+          <i class="fab fa-facebook mr-2"></i> j'ai un compte
+        </a>
+      </div>
+      <!-- /.social-auth-links -->
 
+{#      <p class="mb-1">#}
+{#        <a href="forgot-password.html">I forgot my password</a>#}
+{#      </p>#}
+
+    </div>
+    <!-- /.login-card-body -->
   </div>
 </div>
+
+
+
+
+
 <!-- /.register-box -->
 </div>
 

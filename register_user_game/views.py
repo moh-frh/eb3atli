@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect
 from register_user_game.forms import UserForm, My_gamesForm, Wish_gamesForm
 from register_user_game.models import User, Wish_games
 from .models import My_games
-
+from django.contrib.auth import logout
 
 def Home(request):
     ps_count = Wish_games.objects.filter(environement="Play_Station").count() + My_games.objects.filter(environement="Play_Station").count()
@@ -23,7 +23,7 @@ def Login(request):
         all_user = User.objects.all()
 
         for user in all_user:
-            if email in user.email and password in user.password:
+            if email in user.email and password in user.password and email != "" and password != "":
                 request.session['user_logged_id'] = user.id
                 return render(request, 'dashboard.html', context={'user': user})
 
@@ -48,7 +48,7 @@ def Register(request):
         }
         return render(request, "register.html", context)
 
-from django.contrib.auth import logout
+
 def Logout(request):
     logout(request)
     return redirect('home')
@@ -57,13 +57,16 @@ def Dashboard(request):
     context = {'title':"dashboard"}
 
     wish_games = Wish_games.objects.filter(user = request.session.get('user_logged_id'))
+    # print(wish_games__user__email)
     all_my_games = My_games.objects.all()
     # dashboard_games = set(all_my_games) - ( set(all_my_games) - set(wish_games) )
     dashboard_games = set(all_my_games) and set(wish_games)
+    user = User.objects.get(id=request.session.get('user_logged_id'))
 
     context = {'dashboard_games': dashboard_games,
-               'user': request.session.get('user_logged_id')}
-
+               'wish_games': wish_games,
+               'all_my_games': all_my_games,
+               'user': user}
 
     return render(request, 'dashboard.html', context)
 
@@ -73,7 +76,7 @@ def My_Games(request):
     all_my_games = My_games.objects.filter(user= request.session['user_logged_id'])
     # context = { 'my_games' : My_games.objects.filter(user = request.session.get('user_logged_id') )}
     context = {'all_my_games': all_my_games,
-               'user': request.session.get('user_logged_id'),
+               'user': User.objects.get(id=request.session.get('user_logged_id')),
                }
 
     return render(request, 'my_games.html', context)
@@ -129,10 +132,10 @@ def Delete_my_game(request,pk):
 
 
 def Wish_Games(request):
-    all_my_games = Wish_games.objects.filter(user=request.session['user_logged_id'])
+    all_wish_games = Wish_games.objects.filter(user=request.session['user_logged_id'])
     # context = { 'my_games' : My_games.objects.filter(user = request.session.get('user_logged_id') )}
-    context = {'all_my_games': all_my_games,
-               'user': request.session.get('user_logged_id'),
+    context = {'all_wish_games': all_wish_games,
+               'user': User.objects.get(id=request.session.get('user_logged_id')),
                }
     # context = { 'wish_games' : Wish_games.objects.filter(user = request.session.get('user_logged_id') )}
     return render(request, 'wish_games.html', context)
@@ -186,8 +189,14 @@ def Delete_wish_game(request,pk):
     wish_games.delete()
 
     return redirect('wish_games')
-#
-# def Contact(request):
-#     context = {'title':"contact"}
-#     return render(request, 'contact.html', context)
-#
+
+
+def Game_details(request):
+
+    return render(request, 'game_details.html')
+
+
+def Contact(request):
+    context = {'title':"contact"}
+    return render(request, 'contact.html', context)
+

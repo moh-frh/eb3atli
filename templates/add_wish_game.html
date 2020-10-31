@@ -11,8 +11,7 @@
 
     <!-- daterange picker -->
     <link rel="stylesheet" href="/static/plugins/daterangepicker/daterangepicker.css">
-    <!-- iCheck for checkboxes and radio inputs -->
-    <!-- Bootstrap Color Picker -->
+
     <link rel="stylesheet" href="/static/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css">
     <!-- Tempusdominus Bbootstrap 4 -->
     <link rel="stylesheet" href="/static/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
@@ -25,46 +24,57 @@
 
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
-<body class="hold-transition register-page">
+<body class="hold-transition login-page" >
 
-<div class="col-lg-6" style="margin-top: 50px">
+<div class="login-box" >
+
+    <div class="login-logo">
+        <a href="#">Ngaymiw<b>Ga3</b></a>
+    </div>
 
   <div class="card">
-    <div class="card-body register-card-body">
+    <div class="card-body login-card-body">
+        <p class="login-box-msg">ajouter un jeu</p>
 
-      <form action="" method="POST">
-          {% csrf_token %}
+        <div class="contact-form-area" >
 
-          <div class="input-group mb-3">
-{#          <input type="text" class="form-control" placeholder="Full name">#}
-              {{ form.game_name }}
-            <div class="input-group-append">
-                <div class="input-group-text">
-                    <span class="fas fa-user"></span>
+            <form action="" method="POST">
+            {% csrf_token %}
+
+            <div class="row" >
+
+              <div class="input-group mb-3 col-12">
+    {#          <input type="text" class="form-control" placeholder="Full name">#}
+                  {{ form.game_name }}
+                <div class="input-group-append">
+                    <div class="input-group-text">
+                        <span class="fas fa-gamepad"></span>
+                    </div>
                 </div>
-            </div>
-          </div>
+              </div>
 
-          <div class="input-group mb-3">
-{#          <input type="text" class="form-control" placeholder="Full name">#}
-              {{ form.environement }}
-            <div class="input-group-append">
-                <div class="input-group-text">
-                    <span class="fas fa-user"></span>
+              <div class="input-group mb-3 col-12">
+    {#          <input type="text" class="form-control" placeholder="Full name">#}
+                  {{ form.environement }}
+                <div class="input-group-append">
+                    <div class="input-group-text">
+                        <span class="fas fa-desktop"></span>
+                    </div>
                 </div>
-            </div>
-          </div>
+              </div>
 
-        <div class="row">
-          <!-- /.col -->
-          <div class="col-4">
-            <button type="submit" class="btn btn-block" style="background-color: #20d8da;">
-                save my games
-            </button>
-          </div>
+
+              <!-- /.col -->
+              <div class="col-12">
+                <button type="submit" class="btn btn-block" style="background-color: #20d8da;">
+                    save my games
+                </button>
+              </div>
           <!-- /.col -->
         </div>
       </form>
+
+        </div>
 
 
     </div>
@@ -166,12 +176,14 @@
 		//Query All input fields
 		var form_fields = document.getElementsByTagName('input')
 		form_fields[1].placeholder='game_name';
+        form_fields[1].className=' form-control col-10';
 		form_fields[2].placeholder='environement';
-		form_fields[3].placeholder='type';
+		{#form_fields[2].className='col-10';#}
 
-		for (var field in form_fields){
-			form_fields[field].className += ' form-control'
-		}
+
+		{#for (var field in form_fields){#}
+		{#	form_fields[field].className += ' form-control'#}
+		{#}#}
 </script>
 
 </body>
