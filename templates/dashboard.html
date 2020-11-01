@@ -47,7 +47,7 @@
 
                     {% for game1 in all_my_games %}
                         {% for game2 in wish_games %}
-                            {% if game1.game_name == game2.game_name %}
+                            {% if game1.game_name == game2.game_name and game1.environement == game2.environement  %}
 
                         <div class="single-game-review-area d-flex flex-wrap mb-30 col-md-8">
                             <div class="game-thumbnail">
